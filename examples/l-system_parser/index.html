@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-system Parser</title>
+    <style>
+      p { /* Wrap text */
+        word-break: break-all;
+        white-space: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="parameters">
+      <div>
+      <label for="axiom">Axiom:</label>
+      <input type="text" id="axiom" name="axiom">
+      </div>
+      <div>
+        <label for="iterations">Iterations:</label>
+        <input type="text" id="iterations" name="iterations">
+      </div>
+      <div>
+        <label for="rule1">Rule 1:</label>
+        <input type="text" id="rule1" name="rule1">
+      </div>
+      <div>
+        <label for="rule2">Rule 2:</label>
+        <input type="text" id="rule2" name="rule2">
+      </div>
+      <div>
+        <label for="rule3">Rule 3:</label>
+        <input type="text" id="rule3" name="rule3">
+      </div>
+      <div class="button">
+        <button type="button" id="generateButton">Generate</button>
+      </div>
+      <p id="result"></p>
+    </form>
+
+    <script src="src/LSystem.js"></script>
+  </body>
+</html>
