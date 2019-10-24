@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L-system Parser</title>
+    <script src="../../p5/p5.js"></script>
+    <script src="../../p5/addons/p5.sound.js"></script>
+    <script src="src/sketch.js"></script>
     <style>
       p { /* Wrap text */
         word-break: break-all;
@@ -15,15 +18,19 @@
     <form id="parameters">
       <div>
       <label for="axiom">Axiom:</label>
-      <input type="text" id="axiom" name="axiom">
+      <input type="text" id="axiom" name="axiom" value = "F--F--F">
       </div>
       <div>
         <label for="iterations">Iterations:</label>
         <input type="text" id="iterations" name="iterations">
       </div>
       <div>
+        <label for="angle">Angle:</label>
+        <input type="text" id="angle" name="angle" value = "60">
+      </div>
+      <div>
         <label for="rule1">Rule 1:</label>
-        <input type="text" id="rule1" name="rule1">
+        <input type="text" id="rule1" name="rule1" value = "F=F+F--F+F">
       </div>
       <div>
         <label for="rule2">Rule 2:</label>
@@ -33,12 +40,13 @@
         <label for="rule3">Rule 3:</label>
         <input type="text" id="rule3" name="rule3">
       </div>
-      <div class="button">
-        <button type="button" id="generateButton">Generate</button>
-      </div>
+<!--      <div class="button">-->
+<!--        <button type="button" id="generateButton">Generate</button>-->
+<!--      </div>-->
       <p id="result"></p>
     </form>
 
     <script src="src/LSystem.js"></script>
+
   </body>
 </html>

@@ -3,19 +3,23 @@ class Lsystem{
         this.axiom = "";
         this.rules = {};
         this.iterations = 0;
+        this.angle = 0;
+        this.sentence = "";
         this.onclick();
     }
 
     generate(){
+        this.getData();
         const sentence = this.getSentence(this.iterations);
+        this.sentence = sentence;
         const result = document.getElementById("result");
         result.innerText = sentence;
     }
 
-    getData(e){
+    getData(){
         const form = document.getElementById("parameters");
         const formData = new FormData(form);
-        if (formData.get("axiom").match(/^[A-Z]$/)==null){
+        if (formData.get("axiom").match(/^[A-Z\-+]+$/)==null){
             alert("Invalid axiom input. Axiom must be a capitalized letter!");
             return false;
         }
@@ -27,9 +31,24 @@ class Lsystem{
         }
         this.iterations = formData.get("iterations");
 
-        if (formData.get("rule1") === ""){  // Assume people enter the rule sequentially
-            return true;
+        const angleInt = parseInt(formData.get("angle"));
+        if (isNaN(angleInt)){   // Angle is not an int
+            alert("Invalid angle input. Angle must be a number between 0 and 180!");
+            return false;
         }
+
+        if (angleInt < 0  || angleInt > 180){   // angle between 0 - 180
+            alert("Invalid angle input. Angle must be a number between 0 and 180!");
+            return false;
+        }
+
+        this.angle = angleInt;
+
+        if (formData.get("rule1") === ""){  // Assume people enter the rule sequentially
+            alert("Invalid rule1 input. Rule must be A=XYZ");
+            return false;
+        }
+
         if (formData.get("rule1").match(/^[A-Z]=[A-Z+\-\[\]]+/) == null){
             alert("Invalid rule1 input. Rule must be A=XYZ");
             return false;
@@ -98,4 +117,26 @@ class Lsystem{
     }
 }
 
-const ls = new Lsystem();
+class Turtle{
+    constructor(angle, len){
+        this.angle = angle;
+        this.len = len;
+    }
+
+    move(char){
+        if (char === "F"){  // draw forward
+            line(0, 0, 0, this.len);
+            translate(0, this.len);
+        } else if (char === "+"){   // turn left
+            rotate(this.angle);
+        } else if (char === "-"){
+            rotate(-this.angle);
+        } else if (char === "["){
+            push();
+        } else if (char === "]"){
+            pop();
+        }
+    }
+}
+
+

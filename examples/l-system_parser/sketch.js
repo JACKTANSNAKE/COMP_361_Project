@@ -1,5 +1,7 @@
 // https://www.youtube.com/watch?v=E1B4UoSQMFw&t=605s
 
+let whereinstring = 0;
+
 class Turtle{
     constructor(angle, len){
         this.angle = angle;
