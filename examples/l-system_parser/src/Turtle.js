@@ -64,9 +64,9 @@ class Turtle{
                  bound.maxY = tt.y;
              }
          } else if (c === "+"){
-             tt.right(ls.angle);
+             tt.right(radians(ls.angle));
          } else if (c === "-"){
-             tt.left(ls.angle);
+             tt.left(radians(ls.angle));
          } else if (c === "["){
              tt.push();
          } else if (c === "]"){

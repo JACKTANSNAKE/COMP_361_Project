@@ -5,7 +5,7 @@ let ls;
 let axiom = "";
 let sentence = "";
 
-let len = 100;
+let len = 1000;
 let angle = 0;
 
 let rules = {};
@@ -135,7 +135,7 @@ function setup() {
         axiom = ls.axiom;
         sentence = "";
 
-        len = 100;
+        len = 1000;
         angle = radians(ls.angle);
 
         rules = ls.rules;
