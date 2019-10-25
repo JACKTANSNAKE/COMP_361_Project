@@ -42,11 +42,15 @@ let rules = {};
 // }
 
 function turtle(){
-    background(51);
-    resetMatrix();
-    stroke(255, 100);
-    translate(width/2, height/2);
+    const bound = getBound(ls.sentence);
+    resizeCanvas((Math.abs(bound.minX) + Math.abs(bound.maxX)) * len, (Math.abs(bound.minY) + Math.abs(bound.maxY)) * len);
+    translate(Math.abs(bound.minX * len), Math.abs(bound.maxY * len));
 
+    background(51);
+    // resetMatrix();
+    stroke(255, 100);
+    // translate(width/2, height/2);
+    // translate(0, height/2);
     for (let curr of ls.sentence){
         if (curr.match(/^[A-Z]$/)){
             line(0, 0, 0, -len);
@@ -114,16 +118,20 @@ function scaleGraph(sentence){
 
 function setup() {
   // put setup code here
-    createCanvas(1080, 960);
-    background(51);
-    createP(axiom);
+
+    // createP(axiom);
 
 
     let button = createButton("generate");
     button.id("generateButton");
     ls = new Lsystem();
+
+    createCanvas(windowWidth, windowHeight * 0.8);
+    background(51);
+
     button.mousePressed(e=>{
         ls.generate();
+
         axiom = ls.axiom;
         sentence = "";
 
@@ -141,4 +149,8 @@ function setup() {
 function draw() {
   // put drawing code here
     // turtle();
+}
+
+function windowResized() {
+
 }

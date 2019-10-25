@@ -117,7 +117,8 @@ let x, y;
 
 function setup() {
   // put setup code here
-    createCanvas(710, 400);
+
+    createCanvas(windowWidth, windowHeight);
     stroke(0, 0, 0, 255);
     background(225);
 
@@ -137,4 +138,8 @@ function draw() {
     }
     // increment the point for where we're reading the string.
     // wrap around at the end.
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }

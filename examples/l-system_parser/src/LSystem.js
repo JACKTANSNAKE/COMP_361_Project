@@ -117,26 +117,4 @@ class Lsystem{
     }
 }
 
-class Turtle{
-    constructor(angle, len){
-        this.angle = angle;
-        this.len = len;
-    }
-
-    move(char){
-        if (char === "F"){  // draw forward
-            line(0, 0, 0, this.len);
-            translate(0, this.len);
-        } else if (char === "+"){   // turn left
-            rotate(this.angle);
-        } else if (char === "-"){
-            rotate(-this.angle);
-        } else if (char === "["){
-            push();
-        } else if (char === "]"){
-            pop();
-        }
-    }
-}
-
 
