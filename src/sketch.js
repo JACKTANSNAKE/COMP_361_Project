@@ -5,7 +5,7 @@ let ls;
 let axiom = "";
 let sentence = "";
 
-let len = 1000;
+let len = 1280;
 let angle = 0;
 
 let rules = {};
@@ -43,13 +43,25 @@ let rules = {};
 
 function turtle(){
     const bound = getBound(ls.sentence);
-    resizeCanvas((Math.abs(bound.minX) + Math.abs(bound.maxX)) * len, (Math.abs(bound.minY) + Math.abs(bound.maxY)) * len);
-    translate(Math.abs(bound.minX * len), Math.abs(bound.maxY * len));
+
+    let scalar = 0;
+    // resizeCanvas((Math.abs(bound.minX) + Math.abs(bound.maxX)) * len, (Math.abs(bound.minY) + Math.abs(bound.maxY)) * len);
+    // translate(Math.abs(bound.minX * len), Math.abs(bound.maxY * len));
+    if(bound.maxX - bound.minX >= bound.maxY - bound.minY){
+        scalar = bound.maxX - bound.minX
+    }
+    else{
+        scalar = bound.maxY - bound.minY
+    }
+
+    len = len / scalar;
 
     background(51);
     // resetMatrix();
     stroke(255, 100);
-    // translate(width/2, height/2);
+    translate(width/2, height/2);
+
+
     // translate(0, height/2);
     for (let curr of ls.sentence){
         if (curr.match(/^[A-Z]$/)){
@@ -126,7 +138,7 @@ function setup() {
     button.id("generateButton");
     ls = new Lsystem();
 
-    createCanvas(windowWidth, windowHeight * 0.8);
+    createCanvas(2560, 2560);
     background(51);
 
     button.mousePressed(e=>{
@@ -135,7 +147,7 @@ function setup() {
         axiom = ls.axiom;
         sentence = "";
 
-        len = 1000;
+        len = 1280;
         angle = radians(ls.angle);
 
         rules = ls.rules;

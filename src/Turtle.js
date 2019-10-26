@@ -38,6 +38,14 @@ class Turtle{
         this.x = coord.x;
         this.y = coord.y;
     }
+
+    getX(){
+        return this.x;
+    }
+
+    getY(){
+        return this.y;
+    }
 }
 
 
