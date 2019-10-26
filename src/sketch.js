@@ -55,30 +55,6 @@ function turtle(){
     }
 }
 
-// function scaleGraph(sentence){
-//     minX = 0;
-//     maxX = 0;
-//     minY = 0;
-//     maxY = 0;
-//     for (let curr of sentence){
-//         if (curr.match(/^[A-Z]$/)){
-//             line(0, 0, 0, 1);
-//             translate(0, 1);
-//             if turtle()
-//         } else if (curr === "+"){
-//             rotate(radians(90));
-//         } else if (curr === "-"){
-//             rotate(radians(-90));
-//         } else if (curr === "["){
-//             push();
-//         } else if (curr === "]"){
-//             pop();
-//         }
-//     }
-//
-// }
-//
-//
 function scaleGraph(sentence){
     let bound = {minX: 0,
                 minY: 0,
@@ -105,16 +81,11 @@ function scaleGraph(sentence){
 }
 
 function setup() {
-  // put setup code here
-
-    // createP(axiom);
-
-
     let button = createButton("generate");
     button.id("generateButton");
     ls = new Lsystem();
 
-    createCanvas(2560, 2560);
+    createCanvas(canvas.height, canvas.width);
     background(51);
 
     button.mousePressed(e=>{
