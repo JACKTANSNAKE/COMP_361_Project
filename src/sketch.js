@@ -31,8 +31,12 @@ function turtle(){
     background(51);
     // resetMatrix();
     stroke(255, 100);
-    translate(width/2, height/2); //TODO: recenter the graph.
 
+    // Get the coordinate of the origin point in relation to the left top point, and scale the coordinate according to
+    // the new unit vector
+    const centerX = canvas.width * (Math.abs(bound.minX) / (Math.abs(bound.maxX) + Math.abs(bound.minX)));
+    const centerY = canvas.height * (Math.abs(bound.maxY) / (Math.abs(bound.maxY) + Math.abs(bound.minY)));
+    translate(centerX, centerY);
 
     // translate(0, height/2);
     for (let curr of ls.sentence){
