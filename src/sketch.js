@@ -10,51 +10,23 @@ let angle = 0;
 
 let rules = {};
 
-// rules.push( {
-//     a: "F",
-//     b: "FF+[+F-F-F]-[-F+F+F]"
-// });
-//
-// rules.push({
-//     a: "B",
-//     b: "A"
-// });
-
-// function generate(){
-//     len *= .5;
-//     let nextSentence = "";
-//     for (let c of sentence){
-//         let found = false;
-//         for (let rule of rules){
-//             if (c === rule[]){
-//                 found = true;
-//                 nextSentence += rule.b;
-//                 break;
-//             }
-//         }
-//         if (!found) {
-//             nextSentence += c;
-//         }
-//     }
-//     sentence = nextSentence;
-//     createP(sentence);
-//     turtle();
-// }
+let canvas = {
+    width: 500,
+    height: 500
+};
 
 function turtle(){
     const bound = getBound(ls.sentence);
 
-    let scalar = 0;
-    // resizeCanvas((Math.abs(bound.minX) + Math.abs(bound.maxX)) * len, (Math.abs(bound.minY) + Math.abs(bound.maxY)) * len);
-    // translate(Math.abs(bound.minX * len), Math.abs(bound.maxY * len));
-    if(bound.maxX - bound.minX >= bound.maxY - bound.minY){
-        scalar = bound.maxX - bound.minX
+    let len = 0;    // Set up the length of each stroke
+    if (bound.maxX - bound.minX >= bound.maxY - bound.minY){
+        // Scale the unit scalar to put the boundary inside the canvas
+        // Set the length according to the unit scalar
+        len = canvas.width / (bound.maxX - bound.minX) / Math.cos(ls.angle);
     }
-    else{
-        scalar = bound.maxY - bound.minY
+    else {
+        len = canvas.height / (bound.maxY - bound.minY) / Math.cos(ls.angle);
     }
-
-    len = len / scalar;
 
     background(51);
     // resetMatrix();
@@ -158,11 +130,3 @@ function setup() {
 
 }
 
-function draw() {
-  // put drawing code here
-    // turtle();
-}
-
-function windowResized() {
-
-}
