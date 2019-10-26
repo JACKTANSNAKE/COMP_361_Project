@@ -59,7 +59,7 @@ function turtle(){
     background(51);
     // resetMatrix();
     stroke(255, 100);
-    translate(width/2, height/2);
+    translate(width/2, height/2); //TODO: recenter the graph.
 
 
     // translate(0, height/2);
