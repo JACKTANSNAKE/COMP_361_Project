@@ -16,6 +16,8 @@ let canvas = {
 };
 
 function turtle(){
+    resetMatrix();
+
     const bound = getBound(ls.sentence);
 
     let len = 0;    // Set up the length of each stroke
@@ -36,9 +38,16 @@ function turtle(){
 
     // Get the coordinate of the origin point in relation to the left top point, and scale the coordinate according to
     // the new unit vector
-    const centerX = canvas.width * (Math.abs(bound.minX) / (Math.abs(bound.maxX) + Math.abs(bound.minX)));
-    const centerY = canvas.height * (Math.abs(bound.maxY) / (Math.abs(bound.maxY) + Math.abs(bound.minY)));
+    const totalX = bound.maxX - bound.minX;
+    const totalY = bound.maxY - bound.minY;
+    const centerX = canvas.width * (Math.abs(bound.minX) / totalX);
+    const centerY = canvas.height * (Math.abs(bound.minY) / totalY);
     translate(centerX, centerY);
+
+    console.log(`Total X: ${totalX}`);
+    console.log(`Center X: ${centerX}`);
+    console.log(`Total Y: ${totalY}`);
+    console.log(`Center Y: ${centerY}`);
 
     // The canvas's coordinate system can be convert to the standard coordinate system by rotating 90 deg.
     for (let curr of ls.sentence){
