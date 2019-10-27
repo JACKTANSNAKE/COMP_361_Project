@@ -22,10 +22,12 @@ function turtle(){
     if (bound.maxX - bound.minX >= bound.maxY - bound.minY){
         // Scale the unit scalar to put the boundary inside the canvas
         // Set the length according to the unit scalar
-        len = canvas.width / (bound.maxX - bound.minX) / Math.cos(ls.angle);
+        len = canvas.width / (bound.maxX - bound.minX);
+        console.log(`Width length: ${len}`);
     }
     else {
-        len = canvas.height / (bound.maxY - bound.minY) / Math.cos(ls.angle);
+        len = canvas.height / (bound.maxY - bound.minY);
+        console.log(`Height length: ${len}`);
     }
 
     background(51);
