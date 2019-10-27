@@ -1,0 +1,120 @@
+form {
+    padding: 20px;
+}
+
+input {
+    width: 100%;
+}
+
+input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input[type=text]:focus {
+    background-color: lightblue;
+}
+
+button[type=button] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+}
+
+input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus {
+    background-color: lightblue;
+}
+
+button[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+/** {*/
+    /*box-sizing: border-box;*/
+/*}*/
+
+/* Style the body */
+body {
+    font-family: "Lato", sans-serif;
+}
+
+/*!* Column container *!*/
+/*.row {*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+/*}*/
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+    height: 100%;
+    width: 30%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: lightgrey;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Main column */
+.main {
+    margin-left: 30%; /* Same as the width of the sidenav */
+    font-size: 16px; /* Increased text to enable scrolling */
+    padding: 0px 20px;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+/*@media screen and (max-width: 700px) {*/
+    /*.row {*/
+        /*flex-direction: column;*/
+    /*}*/
+    /*.side {*/
+    /*}*/
+/*}*/
+
+/*p { !* Wrap text *!*/
+    /*word-break: break-all;*/
+    /*white-space: normal;*/
+    /*width: 100%;*/
+    /*padding: 20px;*/
+/*}*/
+
+#canvas-container {
+    margin-left: 200px;
+    margin-right: 200px;
+    /*display: block;*/
+    margin-top: 100px;
+}
+
