@@ -19,6 +19,10 @@ function turtle(){
     resetMatrix();
 
     const bound = getBound(ls.sentence);
+    console.log(`minX: ${bound.minX}`);
+    console.log(`maxX: ${bound.maxX}`);
+    console.log(`minY: ${bound.minY}`);
+    console.log(`maxY: ${bound.maxY}`);
 
     let len = 0;    // Set up the length of each stroke
     if (bound.maxX - bound.minX >= bound.maxY - bound.minY){
