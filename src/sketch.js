@@ -102,8 +102,9 @@ function setup() {
     button.attribute("type", "button");
     ls = new Lsystem();
 
-    createCanvas(canvas.height, canvas.width);
-    background(51);
+    const cnv = createCanvas(canvas.height, canvas.width);
+    background(255);
+    cnv.parent("canvas-container");
 
     button.mousePressed(e=>{
         ls.generate();
