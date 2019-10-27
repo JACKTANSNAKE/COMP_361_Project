@@ -96,8 +96,10 @@ function scaleGraph(sentence){
 }
 
 function setup() {
-    let button = createButton("generate");
+    let button = createButton("Generate");
     button.id("generateButton");
+    button.parent("parameters");
+    button.attribute("type", "button");
     ls = new Lsystem();
 
     createCanvas(canvas.height, canvas.width);
@@ -115,8 +117,5 @@ function setup() {
         rules = ls.rules;
         turtle();
     });
-
-
-
 }
 
