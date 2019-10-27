@@ -35,10 +35,8 @@ function turtle(){
         len = canvas.height / (bound.maxY - bound.minY);
         console.log(`Height length: ${len}`);
     }
-
-    background(51);
     // resetMatrix();
-    stroke(255, 100);
+    stroke(0, 100);
 
     // Get the coordinate of the origin point in relation to the left top point, and scale the coordinate according to
     // the new unit vector
@@ -101,6 +99,12 @@ function setup() {
     button.parent("parameters");
     button.attribute("type", "button");
     ls = new Lsystem();
+
+    // set the canvas' width and height equal to the canvas-container
+    const canvasContainer = document.getElementById("canvas-container");
+    const containerWidth = canvasContainer.offsetWidth;
+    canvas.width =  containerWidth;
+    canvas.height = containerWidth;
 
     const cnv = createCanvas(canvas.height, canvas.width);
     background(255);
