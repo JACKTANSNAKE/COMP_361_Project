@@ -15,15 +15,15 @@ class Turtle{
     right(angle){
         let moveX = this.moveX;
         let moveY = this.moveY;
-        this.moveX = Math.cos(angle) * moveX - Math.sin(angle) * moveY;
-        this.moveY = Math.sin(angle) * moveX + Math.cos(angle) * moveY;
+        this.moveX = Math.cos(angle) * moveX + Math.sin(angle) * moveY;
+        this.moveY = -Math.sin(angle) * moveX + Math.cos(angle) * moveY;
     }
 
     left(angle){
         let moveX = this.moveX;
         let moveY = this.moveY;
-        this.moveX = Math.cos(angle) * moveX + Math.sin(angle) * moveY;
-        this.moveY = -Math.sin(angle) * moveX + Math.cos(angle) * moveY;
+        this.moveX = Math.cos(angle) * moveX - Math.sin(angle) * moveY;
+        this.moveY = Math.sin(angle) * moveX + Math.cos(angle) * moveY;
     }
 
     push(){
