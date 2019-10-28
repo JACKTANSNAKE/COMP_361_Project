@@ -124,3 +124,12 @@ function setup() {
     });
 }
 
+function windowResized(){
+    const canvasContainer = document.getElementById("canvas-container");
+    const containerWidth = canvasContainer.offsetWidth;
+    canvas.width =  containerWidth;
+    canvas.height = containerWidth;
+    resizeCanvas(canvas.width, canvas.height);
+    turtle();
+}
+
