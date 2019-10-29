@@ -30,13 +30,15 @@ class Turtle{
         this.stack.push({   // TODO: handle the case when the number of [ and ] is unequal
             x: this.x,
             y: this.y
-        })
+        });
     }
 
     pop(){
         let coord = this.stack.pop();
         this.x = coord.x;
         this.y = coord.y;
+        this.moveX = 0;
+        this.moveY = 1;
     }
 
     getX(){
