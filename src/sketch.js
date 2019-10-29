@@ -30,16 +30,20 @@ function turtle(){
         // Scale the unit scalar to put the boundary inside the canvas
         // Set the length according to the unit scalar
         len = canvas.width / (bound.maxX - bound.minX);
+        canvas.height = len * (bound.maxY - bound.minY);
         console.log(`Width length: ${len}`);
     }
     else {
         len = canvas.height / (bound.maxY - bound.minY);
+        canvas.width = len * (bound.maxX - bound.minX);
         console.log(`Height length: ${len}`);
     }
 
     // const lenX = canvas.width / (bound.maxX - bound.minX);
     // const lenY = canvas.height / (bound.maxY - bound.minY);
     // const len = Math.min(lenX, lenY);
+
+    resizeCanvas(canvas.width, canvas.height);
 
     // resetMatrix();
     stroke(0, 100);
