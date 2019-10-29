@@ -5,17 +5,40 @@ class Lsystem{
         this.iterations = 0;
         this.angle = 0;
         this.sentence = "";
-        this.onclick();
+        // this.onclick();
     }
 
+    /**
+     * Get the sentence, and update it in the view
+     */
     generate(){
-        this.getData();
-        const sentence = this.getSentence(this.iterations);
-        this.sentence = sentence;
-        const result = document.getElementById("result");
-        result.innerText = sentence;
+        this.reset();
+        const resultView = document.getElementById("result");
+        if (this.getData() === true) {  // Display the sentence only when the data is valid
+            const sentence = this.getSentence(this.iterations);
+            this.sentence = sentence;
+
+            resultView.innerText = sentence;
+        } else {
+            resultView.innerText = "Invalid input";
+        }
     }
 
+    /**
+     * Clear previous setting
+     */
+    reset(){
+        this.axiom = "";
+        this.rules = {};
+        this.iterations = 0;
+        this.angle = 0;
+        this.sentence = "";
+    }
+
+    /*
+    Read from the inputs, get the axiom, iteration, and non-empty rules
+    Assume the user add the rule by sequence
+     */
     getData(){
         const form = document.getElementById("parameters");
         const formData = new FormData(form);
