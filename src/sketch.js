@@ -16,6 +16,7 @@ let canvas = {
 };
 
 function turtle(){
+    clear();
     resetMatrix();
 
     const bound = getBound(ls.sentence);
@@ -35,6 +36,11 @@ function turtle(){
         len = canvas.height / (bound.maxY - bound.minY);
         console.log(`Height length: ${len}`);
     }
+
+    // const lenX = canvas.width / (bound.maxX - bound.minX);
+    // const lenY = canvas.height / (bound.maxY - bound.minY);
+    // const len = Math.min(lenX, lenY);
+
     // resetMatrix();
     stroke(0, 100);
 
