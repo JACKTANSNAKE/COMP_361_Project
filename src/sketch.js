@@ -25,23 +25,11 @@ function turtle(){
     console.log(`minY: ${bound.minY}`);
     console.log(`maxY: ${bound.maxY}`);
 
-    let len = 0;    // Set up the length of each stroke
-    if (bound.maxX - bound.minX >= bound.maxY - bound.minY){
-        // Scale the unit scalar to put the boundary inside the canvas
-        // Set the length according to the unit scalar
-        len = canvas.width / (bound.maxX - bound.minX);
-        canvas.height = len * (bound.maxY - bound.minY);
-        console.log(`Width length: ${len}`);
-    }
-    else {
-        len = canvas.height / (bound.maxY - bound.minY);
-        canvas.width = len * (bound.maxX - bound.minX);
-        console.log(`Height length: ${len}`);
-    }
-
-    // const lenX = canvas.width / (bound.maxX - bound.minX);
-    // const lenY = canvas.height / (bound.maxY - bound.minY);
-    // const len = Math.min(lenX, lenY);
+    // Scale the unit scalar to put the boundary inside the canvas
+    // Set the length according to the unit scalar
+    const len = canvas.width / (bound.maxX - bound.minX);
+    canvas.height = len * (bound.maxY - bound.minY);
+    console.log(`Width length: ${len}`);
 
     resizeCanvas(canvas.width, canvas.height);
 
@@ -75,31 +63,6 @@ function turtle(){
         } else if (curr === "]"){
             pop();
         }
-    }
-}
-
-function scaleGraph(sentence){
-    let bound = {minX: 0,
-                minY: 0,
-                maxX: 0,
-                maxY:0
-    };
-
-    let turtle = {
-        x: 0,
-        y: 0,
-        moveX: 0,
-        moveY: 1
-    };
-
-
-    for (let c of sentence){
-        if (c.match(/^[A-Z]$/)){
-            turtle.x += turtle.moveX;
-            turtle.y += turtle.moveY;
-        }
-
-
     }
 }
 
