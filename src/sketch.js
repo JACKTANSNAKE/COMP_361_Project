@@ -40,8 +40,8 @@ function turtle(){
     // the new unit vector
     const totalX = bound.maxX - bound.minX;
     const totalY = bound.maxY - bound.minY;
-    const centerX = canvas.width * (Math.abs(bound.minX) / totalX);
-    const centerY = canvas.height * (Math.abs(bound.minY) / totalY);
+    const centerX = canvas.width * (Math.abs(bound.maxX) / totalX);
+    const centerY = canvas.height * (Math.abs(bound.maxY) / totalY);
     translate(centerX, centerY);
 
     console.log(`Total X: ${totalX}`);
@@ -52,8 +52,8 @@ function turtle(){
     // The canvas's coordinate system can be convert to the standard coordinate system by rotating 90 deg.
     for (let curr of ls.sentence){
         if (curr.match(/^[A-Z]$/)){ // Go forward
-            line(0, 0, 0, len);
-            translate(0, len);
+            line(0, 0, 0, -len);
+            translate(0, -len);
         } else if (curr === "+"){   // Rotate right in standard coordinate system
             rotate(-angle);
         } else if (curr === "-"){   // Rotate left in standard coordinate system
