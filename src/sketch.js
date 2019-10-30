@@ -27,7 +27,8 @@ function turtle(){
 
     // Scale the unit scalar to put the boundary inside the canvas
     const len = canvas.width / (bound.maxX - bound.minX);   // Set the length according to the unit scalar
-    canvas.height = len * (bound.maxY - bound.minY);
+    canvas.width = canvas.width + 10;  // Leave some space for the line on the edge
+    canvas.height = len * (bound.maxY - bound.minY) + 10;
     console.log(`Width length: ${len}`);
 
 
