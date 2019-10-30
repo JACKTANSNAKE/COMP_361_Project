@@ -25,19 +25,11 @@ function turtle(){
     console.log(`minY: ${bound.minY}`);
     console.log(`maxY: ${bound.maxY}`);
 
-    let len = 0;    // Set up the length of each stroke
-    if (bound.maxX - bound.minX >= bound.maxY - bound.minY){
-        // Scale the unit scalar to put the boundary inside the canvas
-        // Set the length according to the unit scalar
-        len = canvas.width / (bound.maxX - bound.minX);
-        canvas.height = len * (bound.maxY - bound.minY);
-        console.log(`Width length: ${len}`);
-    }
-    else {
-        len = canvas.height / (bound.maxY - bound.minY);
-        canvas.width = len * (bound.maxX - bound.minX);
-        console.log(`Height length: ${len}`);
-    }
+    // Scale the unit scalar to put the boundary inside the canvas
+    const len = canvas.width / (bound.maxX - bound.minX);   // Set the length according to the unit scalar
+    canvas.height = len * (bound.maxY - bound.minY);
+    console.log(`Width length: ${len}`);
+
 
     resizeCanvas(canvas.width, canvas.height);
 
@@ -93,7 +85,7 @@ function setup() {
 
     button.mousePressed(e=>{
         ls.generate();
-        
+
         axiom = ls.axiom;
         sentence = "";
 
@@ -105,11 +97,11 @@ function setup() {
     });
 }
 
-// function windowResized(){
-//     const canvasContainer = document.getElementById("canvas-container");
-//     const containerWidth = canvasContainer.offsetWidth;
-//     canvas.width =  containerWidth;
-//     canvas.height = containerWidth;
-//     resizeCanvas(canvas.width, canvas.height);
-//     turtle();
-// }
+function windowResized(){
+    const canvasContainer = document.getElementById("canvas-container");
+    const containerWidth = canvasContainer.offsetWidth;
+    canvas.width =  containerWidth;
+    canvas.height = containerWidth;
+    resizeCanvas(canvas.width, canvas.height);
+    turtle();
+}
