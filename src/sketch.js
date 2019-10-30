@@ -39,6 +39,10 @@ function turtle(){
         console.log(`Height length: ${len}`);
     }
 
+    // const lenX = canvas.width / (bound.maxX - bound.minX);
+    // const lenY = canvas.height / (bound.maxY - bound.minY);
+    // const len = Math.min(lenX, lenY);
+
     resizeCanvas(canvas.width, canvas.height);
 
     // resetMatrix();
@@ -74,6 +78,31 @@ function turtle(){
     }
 }
 
+function scaleGraph(sentence){
+    let bound = {minX: 0,
+                minY: 0,
+                maxX: 0,
+                maxY:0
+    };
+
+    let turtle = {
+        x: 0,
+        y: 0,
+        moveX: 0,
+        moveY: 1
+    };
+
+
+    for (let c of sentence){
+        if (c.match(/^[A-Z]$/)){
+            turtle.x += turtle.moveX;
+            turtle.y += turtle.moveY;
+        }
+
+
+    }
+}
+
 function setup() {
     let button = createButton("Generate");
     button.id("generateButton");
@@ -93,7 +122,7 @@ function setup() {
 
     button.mousePressed(e=>{
         ls.generate();
-        
+
         axiom = ls.axiom;
         sentence = "";
 
@@ -105,11 +134,12 @@ function setup() {
     });
 }
 
-// function windowResized(){
-//     const canvasContainer = document.getElementById("canvas-container");
-//     const containerWidth = canvasContainer.offsetWidth;
-//     canvas.width =  containerWidth;
-//     canvas.height = containerWidth;
-//     resizeCanvas(canvas.width, canvas.height);
-//     turtle();
-// }
+function windowResized(){
+    const canvasContainer = document.getElementById("canvas-container");
+    const containerWidth = canvasContainer.offsetWidth;
+    canvas.width =  containerWidth;
+    canvas.height = containerWidth;
+    resizeCanvas(canvas.width, canvas.height);
+    turtle();
+}
+
