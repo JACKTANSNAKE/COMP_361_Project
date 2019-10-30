@@ -80,7 +80,3 @@ class Turtle{
 
      return bound;
  }
-
- function transformBound(bound, angle){
-
- }

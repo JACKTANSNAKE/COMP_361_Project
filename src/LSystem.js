@@ -1,11 +1,6 @@
 class Lsystem{
     constructor(){
-        this.axiom = "";
-        this.rules = {};
-        this.iterations = 0;
-        this.angle = 0;
-        this.sentence = "";
-        // this.onclick();
+        this.reset()
     }
 
     /**
@@ -14,11 +9,9 @@ class Lsystem{
     generate(){
         this.reset();
         const resultView = document.getElementById("result");
-        if (this.getData() === true) {  // Display the sentence only when the data is valid
-            const sentence = this.getSentence(this.iterations);
-            this.sentence = sentence;
-
-            resultView.innerText = sentence;
+        if (this.getData()) {  // Display the sentence only when the data is valid
+            this.sentence = this.getSentence(this.iterations);
+            resultView.innerText = this.sentence;
         } else {
             resultView.innerText = "Invalid input";
         }
@@ -107,10 +100,8 @@ class Lsystem{
     onclick(){
         const button = document.getElementById("generateButton");
         button.addEventListener('pointerup', (e) => {
-            const isValidData = this.getData(e);
-            if (isValidData){
-                this.generate();
-            }
+          console.log("!!");
+          this.generate();
         });
         // const formData = $('form').serializeArray();
         // const axiom = formData["axiom"];
@@ -139,5 +130,3 @@ class Lsystem{
         return sentence;
     }
 }
-
-
