@@ -26,8 +26,12 @@ function turtle(){
     console.log(`maxY: ${bound.maxY}`);
 
     // Scale the unit scalar to put the boundary inside the canvas
-    const len = canvas.width / (bound.maxX - bound.minX);   // Set the length according to the unit scalar
-    canvas.width = canvas.width + 10;  // Leave some space for the line on the edge
+    const canvasContainer = document.getElementById("canvas-container");
+    const containerWidth = canvasContainer.offsetWidth;
+
+    const len = (containerWidth - 10) / (bound.maxX - bound.minX);   // Set the length according to the unit scalar
+
+    canvas.width = containerWidth ;  // Leave some space for the line on the edge
     canvas.height = len * (bound.maxY - bound.minY) + 10;
     console.log(`Width length: ${len}`);
 
@@ -41,8 +45,8 @@ function turtle(){
     // the new unit vector
     const totalX = bound.maxX - bound.minX;
     const totalY = bound.maxY - bound.minY;
-    const centerX = canvas.width * (Math.abs(bound.maxX) / totalX);
-    const centerY = canvas.height * (Math.abs(bound.maxY) / totalY);
+    const centerX = canvas.width * (Math.abs(bound.maxX) / totalX) - 5;
+    const centerY = canvas.height * (Math.abs(bound.maxY) / totalY) - 5;
     translate(centerX, centerY);
 
     console.log(`Total X: ${totalX}`);
