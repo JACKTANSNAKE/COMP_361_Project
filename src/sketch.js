@@ -45,7 +45,7 @@ function turtle(){
     // the new unit vector
     const totalX = bound.maxX - bound.minX;
     const totalY = bound.maxY - bound.minY;
-    const centerX = canvas.width * (Math.abs(bound.maxX) / totalX) - 5;
+    const centerX = canvas.width * (Math.abs(bound.maxX) / totalX) + 5;
     const centerY = canvas.height * (Math.abs(bound.maxY) / totalY) - 5;
     translate(centerX, centerY);
 
